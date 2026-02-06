@@ -1,14 +1,3 @@
-import PublicLayout from '@/layouts/public-layout';
-import HeroSection from '@/components/landing/hero-section';
-import TrustBadges from '@/components/landing/trust-badges';
-import ServicesOverview from '@/components/landing/services-overview';
-import MarketplacePreview from '@/components/landing/marketplace-preview';
-import VTUFeatures from '@/components/landing/vtu-features';
-import WalletSection from '@/components/landing/wallet-section';
-import APIIntegrationSection from '@/components/landing/api-integration-section';
-import DownloadAppSection from '@/components/landing/download-app-section';
-import CallToAction from '@/components/landing/call-to-action';
-import Footer from '@/components/landing/footer';
 import {
     Banknote,
     Boxes,
@@ -24,6 +13,17 @@ import {
     Wifi,
     Zap,
 } from 'lucide-react';
+import APIIntegrationSection from '@/components/landing/api-integration-section';
+import CallToAction from '@/components/landing/call-to-action';
+import DownloadAppSection from '@/components/landing/download-app-section';
+import Footer from '@/components/landing/footer';
+import HeroSection from '@/components/landing/hero-section';
+import MarketplacePreview from '@/components/landing/marketplace-preview';
+import ServicesOverview from '@/components/landing/services-overview';
+import TrustBadges from '@/components/landing/trust-badges';
+import VTUFeatures from '@/components/landing/vtu-features';
+import WalletSection from '@/components/landing/wallet-section';
+import PublicLayout from '@/layouts/public-layout';
 import { register } from '@/routes';
 
 export default function LandingIndex() {
@@ -37,9 +37,7 @@ export default function LandingIndex() {
                 title={
                     <>
                         Build the backbone for{' '}
-                        <span className="text-[var(--color-primary)]">
-                            VTU
-                        </span>{' '}
+                        <span className="text-[var(--color-primary)]">VTU</span>{' '}
                         and{' '}
                         <span className="text-[var(--color-secondary)]">
                             marketplace
