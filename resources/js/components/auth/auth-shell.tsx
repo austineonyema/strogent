@@ -5,6 +5,7 @@ import { colorCssVars } from '@/theme/colors';
 import { motionCssVars } from '@/theme/motion';
 import { spacingCssVars } from '@/theme/spacing';
 import { typographyCssVars } from '@/theme/typography';
+import TrustBadgeStrip from '@/components/auth/trust-badge-strip';
 
 type AuthShellProps = PropsWithChildren<{
     title: string;
@@ -81,6 +82,7 @@ export default function AuthShell({
                                     </div>
                                 ))}
                             </div>
+                            <TrustBadgeStrip />
                         </section>
                         <section>{children}</section>
                     </main>

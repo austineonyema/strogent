@@ -17,11 +17,7 @@ type Props = {
     canRegister: boolean;
 };
 
-export default function Login({
-    status,
-    canResetPassword,
-    canRegister,
-}: Props) {
+export default function Login({ status }: Props) {
     return (
         <AuthShell
             title="Welcome back to Strogent."
@@ -32,12 +28,12 @@ export default function Login({
                 title="Log in to your workspace"
                 description="Enter your credentials to access your Strogent dashboard."
                 footer={
-                    canRegister ? (
-                        <>
-                            Don't have an account?{' '}
-                            <TextLink href={register()}>Sign up</TextLink>
-                        </>
-                    ) : null
+                    <TextLink
+                        href={register()}
+                        className="no-underline hover:underline"
+                    >
+                        Don&apos;t have an account? Sign up
+                    </TextLink>
                 }
             >
                 {status && (
@@ -76,15 +72,13 @@ export default function Login({
                                     placeholder="Password"
                                     error={errors.password}
                                     rightSlot={
-                                        canResetPassword ? (
-                                            <TextLink
-                                                href={request()}
-                                                className="text-[length:var(--text-small)]"
-                                                tabIndex={5}
-                                            >
-                                                Forgot password?
-                                            </TextLink>
-                                        ) : null
+                                        <TextLink
+                                            href={request()}
+                                            className="text-[length:var(--text-small)] no-underline hover:underline"
+                                            tabIndex={5}
+                                        >
+                                            Forgot password?
+                                        </TextLink>
                                     }
                                 />
                                 <div className="flex items-center space-x-3">

@@ -2,6 +2,7 @@ import { Form, Head } from '@inertiajs/react';
 import AuthCard from '@/components/auth/auth-card';
 import AuthField from '@/components/auth/auth-field';
 import AuthShell from '@/components/auth/auth-shell';
+import KycHint from '@/components/auth/kyc-hint';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
@@ -19,10 +20,12 @@ export default function Register() {
                 title="Start your Strogent account"
                 description="Tell us who you are. We will set up your workspace in minutes."
                 footer={
-                    <>
-                        Already have an account?{' '}
-                        <TextLink href={login()}>Log in</TextLink>
-                    </>
+                    <TextLink
+                        href={login()}
+                        className="no-underline hover:underline"
+                    >
+                        Already have an account? Log in
+                    </TextLink>
                 }
             >
                 <Form
@@ -103,6 +106,7 @@ export default function Register() {
                                     placeholder="Re-enter your password"
                                     error={errors.password_confirmation}
                                 />
+                                <KycHint />
                                 <Button
                                     type="submit"
                                     className="mt-2 w-full bg-[var(--color-primary)] text-white shadow-sm hover:bg-[var(--color-primary-hover)]"

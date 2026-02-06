@@ -24,4 +24,10 @@ export default defineConfig({
     esbuild: {
         jsx: 'automatic',
     },
+    server: {
+        host: true, // allows external access
+        port: 5173, // your vite port
+    },
+    // Optional: define base if needed
+    base: process.env.APP_URL,
 });
