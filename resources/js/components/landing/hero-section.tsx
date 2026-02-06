@@ -61,7 +61,7 @@ export default function HeroSection({
     return (
         <section
             id="hero"
-            className="mx-auto flex w-full max-w-[var(--container)] flex-col gap-[var(--space-16)] px-[var(--space-6)] pb-[var(--space-24)] pt-[var(--space-12)] lg:flex-row lg:items-center lg:gap-[var(--space-20)]"
+            className="mx-auto flex w-full max-w-[var(--container)] scroll-mt-[var(--space-24)] flex-col gap-[var(--space-16)] px-[var(--space-6)] pb-[var(--space-24)] pt-[var(--space-12)] lg:flex-row lg:items-center lg:gap-[var(--space-20)]"
         >
             <div className="flex flex-1 flex-col gap-[var(--space-6)]">
                 <Reveal>

@@ -21,7 +21,7 @@ export default function ServicesOverview({
     return (
         <section
             id="services"
-            className="mx-auto w-full max-w-[var(--container)] px-[var(--space-6)] py-[var(--space-20)]"
+            className="mx-auto w-full max-w-[var(--container)] scroll-mt-[var(--space-24)] px-[var(--space-6)] py-[var(--space-20)]"
         >
             <div className="flex flex-col gap-[var(--space-4)]">
                 <Reveal>

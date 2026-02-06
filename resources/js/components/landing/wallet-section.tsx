@@ -21,7 +21,7 @@ export default function WalletSection({
     return (
         <section
             id="wallet"
-            className="bg-[var(--color-surface-muted)] py-[var(--space-20)]"
+            className="scroll-mt-[var(--space-24)] bg-[var(--color-surface-muted)] py-[var(--space-20)]"
         >
             <div className="mx-auto w-full max-w-[var(--container)] px-[var(--space-6)]">
                 <div className="grid gap-[var(--space-10)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">

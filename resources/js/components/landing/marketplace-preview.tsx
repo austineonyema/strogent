@@ -21,7 +21,7 @@ export default function MarketplacePreview({
     return (
         <section
             id="marketplace"
-            className="mx-auto w-full max-w-[var(--container)] px-[var(--space-6)] py-[var(--space-20)]"
+            className="mx-auto w-full max-w-[var(--container)] scroll-mt-[var(--space-24)] px-[var(--space-6)] py-[var(--space-20)]"
         >
             <div className="grid gap-[var(--space-10)] lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
                 <div className="flex flex-col gap-[var(--space-4)]">

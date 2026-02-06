@@ -47,7 +47,10 @@ export default function CallToAction({
     };
 
     return (
-        <section id="cta" className="py-[var(--space-20)]">
+        <section
+            id="cta"
+            className="scroll-mt-[var(--space-24)] py-[var(--space-20)]"
+        >
             <div className="mx-auto w-full max-w-[var(--container)] px-[var(--space-6)]">
                 <Reveal>
                     <div className="rounded-3xl bg-[linear-gradient(135deg,var(--color-primary)_0%,var(--color-secondary)_70%)] px-[var(--space-8)] py-[var(--space-10)] text-white shadow-2xl">
