@@ -1,114 +1,123 @@
 import { Form, Head } from '@inertiajs/react';
-import InputError from '@/components/input-error';
+import AuthCard from '@/components/auth/auth-card';
+import AuthField from '@/components/auth/auth-field';
+import AuthShell from '@/components/auth/auth-shell';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
 import { Spinner } from '@/components/ui/spinner';
-import AuthLayout from '@/layouts/auth-layout';
 import { login } from '@/routes';
 import { store } from '@/routes/register';
 
 export default function Register() {
     return (
-        <AuthLayout
-            title="Create an account"
-            description="Enter your details below to create your account"
+        <AuthShell
+            title="Create a Strogent account built for growth."
+            subtitle="Launch VTU, wallet, and marketplace operations with secure onboarding for your team."
         >
             <Head title="Register" />
-            <Form
-                {...store.form()}
-                resetOnSuccess={['password', 'password_confirmation']}
-                disableWhileProcessing
-                className="flex flex-col gap-6"
-            >
-                {({ processing, errors }) => (
+            <AuthCard
+                title="Start your Strogent account"
+                description="Tell us who you are. We will set up your workspace in minutes."
+                footer={
                     <>
-                        <div className="grid gap-6">
-                            <div className="grid gap-2">
-                                <Label htmlFor="name">Name</Label>
-                                <Input
-                                    id="name"
+                        Already have an account?{' '}
+                        <TextLink href={login()}>Log in</TextLink>
+                    </>
+                }
+            >
+                <Form
+                    {...store.form()}
+                    resetOnSuccess={['password', 'password_confirmation']}
+                    disableWhileProcessing
+                    className="flex flex-col gap-6"
+                >
+                    {({ processing, errors }) => (
+                        <>
+                            <div className="grid gap-5">
+                                <AuthField
+                                    id="username"
+                                    name="username"
+                                    label="Username"
                                     type="text"
                                     required
                                     autoFocus
                                     tabIndex={1}
-                                    autoComplete="name"
-                                    name="name"
-                                    placeholder="Full name"
+                                    autoComplete="username"
+                                    placeholder="strogent_user"
+                                    error={errors.username}
                                 />
-                                <InputError
-                                    message={errors.name}
-                                    className="mt-2"
-                                />
-                            </div>
-
-                            <div className="grid gap-2">
-                                <Label htmlFor="email">Email address</Label>
-                                <Input
+                                <div className="grid gap-4 md:grid-cols-2">
+                                    <AuthField
+                                        id="first_name"
+                                        name="first_name"
+                                        label="First name"
+                                        type="text"
+                                        required
+                                        tabIndex={2}
+                                        autoComplete="given-name"
+                                        placeholder="Ada"
+                                        error={errors.first_name}
+                                    />
+                                    <AuthField
+                                        id="last_name"
+                                        name="last_name"
+                                        label="Last name"
+                                        type="text"
+                                        required
+                                        tabIndex={3}
+                                        autoComplete="family-name"
+                                        placeholder="Okeke"
+                                        error={errors.last_name}
+                                    />
+                                </div>
+                                <AuthField
                                     id="email"
+                                    name="email"
+                                    label="Email address"
                                     type="email"
                                     required
-                                    tabIndex={2}
-                                    autoComplete="email"
-                                    name="email"
-                                    placeholder="email@example.com"
-                                />
-                                <InputError message={errors.email} />
-                            </div>
-
-                            <div className="grid gap-2">
-                                <Label htmlFor="password">Password</Label>
-                                <Input
-                                    id="password"
-                                    type="password"
-                                    required
-                                    tabIndex={3}
-                                    autoComplete="new-password"
-                                    name="password"
-                                    placeholder="Password"
-                                />
-                                <InputError message={errors.password} />
-                            </div>
-
-                            <div className="grid gap-2">
-                                <Label htmlFor="password_confirmation">
-                                    Confirm password
-                                </Label>
-                                <Input
-                                    id="password_confirmation"
-                                    type="password"
-                                    required
                                     tabIndex={4}
+                                    autoComplete="email"
+                                    placeholder="you@strogent.app"
+                                    error={errors.email}
+                                />
+                                <AuthField
+                                    id="password"
+                                    name="password"
+                                    label="Password"
+                                    type="password"
+                                    required
+                                    tabIndex={5}
                                     autoComplete="new-password"
+                                    placeholder="Create a secure password"
+                                    error={errors.password}
+                                />
+                                <AuthField
+                                    id="password_confirmation"
                                     name="password_confirmation"
-                                    placeholder="Confirm password"
+                                    label="Confirm password"
+                                    type="password"
+                                    required
+                                    tabIndex={6}
+                                    autoComplete="new-password"
+                                    placeholder="Re-enter your password"
+                                    error={errors.password_confirmation}
                                 />
-                                <InputError
-                                    message={errors.password_confirmation}
-                                />
+                                <Button
+                                    type="submit"
+                                    className="mt-2 w-full bg-[var(--color-primary)] text-white shadow-sm hover:bg-[var(--color-primary-hover)]"
+                                    tabIndex={7}
+                                    disabled={processing}
+                                    data-test="register-user-button"
+                                >
+                                    {processing && <Spinner />}
+                                    Create account
+                                </Button>
                             </div>
-
-                            <Button
-                                type="submit"
-                                className="mt-2 w-full"
-                                tabIndex={5}
-                                data-test="register-user-button"
-                            >
-                                {processing && <Spinner />}
-                                Create account
-                            </Button>
-                        </div>
-
-                        <div className="text-center text-sm text-muted-foreground">
-                            Already have an account?{' '}
-                            <TextLink href={login()} tabIndex={6}>
-                                Log in
-                            </TextLink>
-                        </div>
-                    </>
-                )}
-            </Form>
-        </AuthLayout>
+                        </>
+                    )}
+                </Form>
+            </AuthCard>
+        </AuthShell>
     );
 }
