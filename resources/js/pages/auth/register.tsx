@@ -109,7 +109,7 @@ export default function Register() {
                                 <KycHint />
                                 <Button
                                     type="submit"
-                                    className="mt-2 w-full bg-[var(--color-primary)] text-white shadow-sm hover:bg-[var(--color-primary-hover)]"
+                                    className="mt-2 w-full bg-primary text-white shadow-sm hover:bg-(--color-primary-hover)"
                                     tabIndex={7}
                                     disabled={processing}
                                     data-test="register-user-button"
