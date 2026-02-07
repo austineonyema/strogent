@@ -1,11 +1,11 @@
 import { Head, Link } from '@inertiajs/react';
 import type { CSSProperties, PropsWithChildren, ReactNode } from 'react';
+import TrustBadgeStrip from '@/components/auth/trust-badge-strip';
 import { home } from '@/routes';
 import { colorCssVars } from '@/theme/colors';
 import { motionCssVars } from '@/theme/motion';
 import { spacingCssVars } from '@/theme/spacing';
 import { typographyCssVars } from '@/theme/typography';
-import TrustBadgeStrip from '@/components/auth/trust-badge-strip';
 
 type AuthShellProps = PropsWithChildren<{
     title: string;
@@ -46,8 +46,8 @@ export default function AuthShell({
             </Head>
             <div className="relative overflow-hidden">
                 <div className="pointer-events-none absolute top-[-15%] left-[-10%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,var(--color-glow-primary)_0%,transparent_70%)] opacity-70 blur-2xl" />
-                <div className="pointer-events-none absolute bottom-[-20%] right-[-10%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,var(--color-glow-accent)_0%,transparent_70%)] opacity-60 blur-2xl" />
-                <div className="mx-auto flex min-h-screen w-full max-w-[var(--container)] flex-col px-[var(--space-6)] pb-[var(--space-16)] pt-[var(--space-10)]">
+                <div className="pointer-events-none absolute right-[-10%] bottom-[-20%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,var(--color-glow-accent)_0%,transparent_70%)] opacity-60 blur-2xl" />
+                <div className="mx-auto flex min-h-screen w-full max-w-[var(--container)] flex-col px-[var(--space-6)] pt-[var(--space-10)] pb-[var(--space-16)]">
                     <header className="flex items-center justify-between">
                         <Link
                             href={home()}
@@ -62,10 +62,10 @@ export default function AuthShell({
 
                     <main className="grid flex-1 items-center gap-[var(--space-12)] pt-[var(--space-12)] lg:grid-cols-[1.05fr_0.95fr] lg:pt-[var(--space-16)]">
                         <section className="flex flex-col gap-[var(--space-6)]">
-                            <p className="text-[length:var(--text-small)] font-semibold uppercase tracking-[0.2em] text-[var(--color-text-muted)]">
+                            <p className="text-[length:var(--text-small)] font-semibold tracking-[0.2em] text-[var(--color-text-muted)] uppercase">
                                 Strogent Access
                             </p>
-                            <h1 className="font-[var(--font-heading)] text-[length:var(--text-display)] leading-[var(--leading-display)]">
+                            <h1 className="text-[length:var(--text-display)] leading-[var(--leading-display)] font-[var(--font-heading)]">
                                 {title}
                             </h1>
                             <p className="max-w-[420px] text-[length:var(--text-subtitle)] text-[var(--color-text-muted)]">

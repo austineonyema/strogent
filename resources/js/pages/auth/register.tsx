@@ -22,7 +22,7 @@ export default function Register() {
                 footer={
                     <TextLink
                         href={login()}
-                        className="no-underline hover:underline"
+                        className="underline text-text-header text-primary underline-offset-2"
                     >
                         Already have an account? Log in
                     </TextLink>
@@ -37,18 +37,6 @@ export default function Register() {
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-5">
-                                <AuthField
-                                    id="username"
-                                    name="username"
-                                    label="Username"
-                                    type="text"
-                                    required
-                                    autoFocus
-                                    tabIndex={1}
-                                    autoComplete="username"
-                                    placeholder="strogent_user"
-                                    error={errors.username}
-                                />
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <AuthField
                                         id="first_name"

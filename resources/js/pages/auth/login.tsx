@@ -30,21 +30,21 @@ export default function Login({ status }: Props) {
                 footer={
                     <TextLink
                         href={register()}
-                        className="no-underline hover:underline"
+                        className="underline text-text-header text-primary underline-offset-2"
                     >
                         Don&apos;t have an account? Sign up
                     </TextLink>
                 }
             >
                 {status && (
-                    <div className="rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-4)] py-[var(--space-3)] text-[length:var(--text-small)] text-[var(--color-success)]">
+                    <div className="rounded-2xl border border-border bg-(--color-surface) px-(--space-4) py-(--space-3) text-(length:--text-small) text-(--color-success)">
                         {status}
                     </div>
                 )}
                 <Form
                     {...store.form()}
                     resetOnSuccess={['password']}
-                    className="mt-[var(--space-5)] flex flex-col gap-6"
+                    className="mt-(--space-5) flex flex-col gap-6"
                 >
                     {({ processing, errors }) => (
                         <>
@@ -74,7 +74,7 @@ export default function Login({ status }: Props) {
                                     rightSlot={
                                         <TextLink
                                             href={request()}
-                                            className="text-[length:var(--text-small)] no-underline hover:underline"
+                                            className="text-(length:--text-small) no-underline hover:underline"
                                             tabIndex={5}
                                         >
                                             Forgot password?
@@ -93,7 +93,7 @@ export default function Login({ status }: Props) {
                                 </div>
                                 <Button
                                     type="submit"
-                                    className="mt-2 w-full bg-[var(--color-primary)] text-white shadow-sm hover:bg-[var(--color-primary-hover)]"
+                                    className="mt-2 w-full bg-primary text-white shadow-sm hover:bg-(--color-primary-hover)"
                                     tabIndex={4}
                                     disabled={processing}
                                     data-test="login-button"
