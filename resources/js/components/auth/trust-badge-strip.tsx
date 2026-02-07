@@ -17,15 +17,15 @@ const items = [
 
 export default function TrustBadgeStrip() {
     return (
-        <div className="flex flex-wrap gap-[var(--space-3)] text-[length:var(--text-micro)] text-[var(--color-text-muted)]">
+        <div className="flex flex-wrap gap-(--space-3) text-(length:--text-micro) text-(--color-text-muted)">
             {items.map((item) => {
                 const Icon = item.icon;
                 return (
                     <div
                         key={item.label}
-                        className="inline-flex items-center gap-[var(--space-2)] rounded-full border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-[var(--space-3)] py-[var(--space-2)]"
+                        className="inline-flex items-center gap-(--space-2) rounded-full border border-border bg-(--color-surface-elevated) px-(--space-3) py-(--space-2)"
                     >
-                        <Icon className="h-4 w-4 text-[var(--color-success)]" />
+                        <Icon className="h-4 w-4 text-(--color-success)" />
                         <span className="font-semibold">{item.label}</span>
                     </div>
                 );
