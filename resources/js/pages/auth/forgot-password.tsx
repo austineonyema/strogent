@@ -3,12 +3,12 @@ import { Form, Head } from '@inertiajs/react';
 import AuthCard from '@/components/auth/auth-card';
 import AuthField from '@/components/auth/auth-field';
 import AuthShell from '@/components/auth/auth-shell';
+import BrandLogo from '@/components/brand-logo';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
 import { login } from '@/routes';
 import { email } from '@/routes/password';
-import BrandLogo from '@/components/brand-logo';
 
 export default function ForgotPassword({ status }: { status?: string }) {
     return (
