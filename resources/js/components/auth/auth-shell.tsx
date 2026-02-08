@@ -35,7 +35,7 @@ export default function AuthShell({
     return (
         <div
             style={themeVars}
-            className="min-h-screen bg-[var(--color-surface)] font-[var(--font-body)] text-[var(--color-text)]"
+            className="min-h-screen bg-(--color-surface) font-(--font-body) text-(--color-text)"
         >
             <Head>
                 <link rel="preconnect" href="https://fonts.bunny.net" />
@@ -45,9 +45,9 @@ export default function AuthShell({
                 />
             </Head>
             <div className="relative overflow-hidden">
-                <div className="pointer-events-none absolute top-[-15%] left-[-10%] h-[320px] w-[320px] rounded-full bg-[radial-gradient(circle,var(--color-glow-primary)_0%,transparent_70%)] opacity-70 blur-2xl" />
-                <div className="pointer-events-none absolute right-[-10%] bottom-[-20%] h-[360px] w-[360px] rounded-full bg-[radial-gradient(circle,var(--color-glow-accent)_0%,transparent_70%)] opacity-60 blur-2xl" />
-                <div className="mx-auto flex min-h-screen w-full max-w-[var(--container)] flex-col px-[var(--space-6)] pt-[var(--space-10)] pb-[var(--space-16)]">
+                <div className="pointer-events-none absolute top-[-15%] left-[-10%] h-80 w-[320px] rounded-full bg-[radial-gradient(circle,var(--color-glow-primary)_0%,transparent_70%)] opacity-70 blur-2xl" />
+                <div className="pointer-events-none absolute right-[-10%] bottom-[-20%] h-90 w-90 rounded-full bg-[radial-gradient(circle,var(--color-glow-accent)_0%,transparent_70%)] opacity-60 blur-2xl" />
+                <div className="mx-auto flex min-h-screen w-full max-w-[var(--container)] flex-col px-(--space-6) pt-[var(--space-10)] pb-[var(--space-16)]">
                     <header className="flex items-center justify-between">
                         <Link
                             href={home()}
