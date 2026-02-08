@@ -30,7 +30,7 @@ export default function Login({ status }: Props) {
                 footer={
                     <TextLink
                         href={register()}
-                        className="underline text-text-header text-primary underline-offset-2"
+                        className="text-text-header text-primary underline underline-offset-2"
                     >
                         Don&apos;t have an account? Sign up
                     </TextLink>
@@ -74,7 +74,7 @@ export default function Login({ status }: Props) {
                                     rightSlot={
                                         <TextLink
                                             href={request()}
-                                            className="text-(length:--text-small) no-underline hover:underline"
+                                            className="text-(length:--text-small) text-primary no-underline underline-offset-2 hover:underline"
                                             tabIndex={5}
                                         >
                                             Forgot password?
