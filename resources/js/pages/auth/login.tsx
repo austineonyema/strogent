@@ -30,7 +30,7 @@ export default function Login({ status }: Props) {
                 footer={
                     <TextLink
                         href={register()}
-                        className="text-text-header text-primary underline underline-offset-2"
+                        className="text-text-header text-primary no-underline underline-offset-2 hover:underline"
                     >
                         Don&apos;t have an account? Sign up
                     </TextLink>
