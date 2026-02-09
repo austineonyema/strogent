@@ -22,7 +22,7 @@ export default function Register() {
                 footer={
                     <TextLink
                         href={login()}
-                        className="underline text-text-header text-primary underline-offset-2"
+                        className="text-text-header text-primary underline underline-offset-2"
                     >
                         Already have an account? Log in
                     </TextLink>
@@ -39,26 +39,15 @@ export default function Register() {
                             <div className="grid gap-5">
                                 <div className="grid gap-4 md:grid-cols-2">
                                     <AuthField
-                                        id="first_name"
-                                        name="first_name"
-                                        label="First name"
-                                        type="text"
-                                        required
-                                        tabIndex={2}
-                                        autoComplete="given-name"
-                                        placeholder="Ada"
-                                        error={errors.first_name}
-                                    />
-                                    <AuthField
-                                        id="last_name"
-                                        name="last_name"
-                                        label="Last name"
+                                        id="name"
+                                        name="name"
+                                        label="name"
                                         type="text"
                                         required
                                         tabIndex={3}
                                         autoComplete="family-name"
-                                        placeholder="Okeke"
-                                        error={errors.last_name}
+                                        placeholder="Okeke Gbadamosi"
+                                        error={errors.name}
                                     />
                                 </div>
                                 <AuthField
@@ -97,6 +86,9 @@ export default function Register() {
                                 <KycHint />
                                 <Button
                                     type="submit"
+                                    onClick={() =>
+                                        console.log('submit button clicked')
+                                    }
                                     className="mt-2 w-full bg-primary text-white shadow-sm hover:bg-(--color-primary-hover)"
                                     tabIndex={7}
                                     disabled={processing}
