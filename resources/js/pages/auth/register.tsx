@@ -22,7 +22,7 @@ export default function Register() {
                 footer={
                     <TextLink
                         href={login()}
-                        className="text-text-header text-primary underline underline-offset-2"
+                        className="underline text-text-header text-primary underline-offset-2"
                     >
                         Already have an account? Log in
                     </TextLink>
@@ -37,19 +37,19 @@ export default function Register() {
                     {({ processing, errors }) => (
                         <>
                             <div className="grid gap-5">
-                                <div className="grid gap-4 md:grid-cols-2">
-                                    <AuthField
-                                        id="name"
-                                        name="name"
-                                        label="name"
-                                        type="text"
-                                        required
-                                        tabIndex={3}
-                                        autoComplete="family-name"
-                                        placeholder="Okeke Gbadamosi"
-                                        error={errors.name}
-                                    />
-                                </div>
+                                {/* <div className="grid gap-4 md:grid-cols-2"> */}
+                                <AuthField
+                                    id="name"
+                                    name="name"
+                                    label="name"
+                                    type="text"
+                                    required
+                                    tabIndex={3}
+                                    autoComplete="family-name"
+                                    placeholder="Okeke Gbadamosi"
+                                    error={errors.name}
+                                />
+                                {/* </div> */}
                                 <AuthField
                                     id="email"
                                     name="email"

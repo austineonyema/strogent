@@ -3,7 +3,6 @@ import { Form, Head } from '@inertiajs/react';
 import AuthCard from '@/components/auth/auth-card';
 import AuthField from '@/components/auth/auth-field';
 import AuthShell from '@/components/auth/auth-shell';
-import BrandLogo from '@/components/brand-logo';
 import TextLink from '@/components/text-link';
 import { Button } from '@/components/ui/button';
 import { Spinner } from '@/components/ui/spinner';
@@ -18,9 +17,6 @@ export default function ForgotPassword({ status }: { status?: string }) {
         >
             <Head title="Forgot password" />
             <div className="flex flex-col gap-(--space-6)">
-                <div className="flex items-center justify-center rounded-2xl border border-border bg-(--color-surface-elevated) px-(--space-5) py-(--space-4) shadow-lg">
-                    <BrandLogo />
-                </div>
                 <AuthCard
                     title="Forgot password"
                     description="Enter your email to receive a password reset link"
