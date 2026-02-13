@@ -11,20 +11,14 @@ services:
           - key: APP_ENV
             value: production
 
-      # Build command (optional if using Docker)
-      buildCommand: ''
-
-      # Start command (Docker handles this)
-      startCommand: ''
-
       # Health check
       healthCheckPath: /
 
       # Disk for persistent storage
-      disks:
-          - name: storage
-            mountPath: /app/storage
-            sizeGB: 1
+      disk:
+          name: storage
+          mountPath: /app/storage
+          sizeGB: 1
 
       # Scaling
       numInstances: 1

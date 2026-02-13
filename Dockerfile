@@ -13,6 +13,8 @@ RUN apk add --no-cache \
     libzip-dev \
     zlib-dev \
     postgresql-dev \
+    nodejs \
+    npm \
     git \
     curl
 
@@ -35,7 +37,11 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY composer.json composer.lock* ./
 
 # Install PHP dependencies
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+
+# Copy Node package files and install dependencies for frontend build
+COPY package.json package-lock.json* ./
+RUN npm ci
 
 # Copy application code
 COPY . .
@@ -44,7 +50,7 @@ COPY . .
 RUN composer dump-autoload --optimize
 
 # Build assets
-RUN npm install && npm run build
+RUN npm run build
 
 # Runtime stage
 FROM php:8.4-fpm-alpine
@@ -56,6 +62,8 @@ WORKDIR /app
 RUN apk add --no-cache \
     nginx \
     supervisor \
+    wget \
+    netcat-openbsd \
     libpng \
     libjpeg-turbo \
     freetype \
