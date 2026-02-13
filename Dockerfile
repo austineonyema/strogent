@@ -95,7 +95,7 @@ RUN mkdir -p /app/storage/logs && \
     chmod -R 755 /app/bootstrap/cache
 
 # Expose port
-EXPOSE 8000
+# EXPOSE 8000
 
 # Health check
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 \

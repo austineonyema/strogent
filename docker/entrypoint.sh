@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# Replace PORT placeholder in nginx config
+sed -i "s/\${PORT}/$PORT/g" /etc/nginx/http.d/default.conf
+
 # Wait for database to be ready (if needed)
 if [ ! -z "$DB_HOST" ]; then
     echo "Waiting for database connection..."
