@@ -70,17 +70,9 @@ RUN apk add --no-cache \
     libzip \
     postgresql-client
 
-# Install PHP extensions
-RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
-    docker-php-ext-install -j$(nproc) \
-    gd \
-    zip \
-    pdo \
-    pdo_pgsql \
-    pdo_mysql \
-    bcmath \
-    ctype \
-    fileinfo
+# Reuse PHP extensions compiled in the builder stage
+COPY --from=builder /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
+COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 
 # Copy PHP configuration
 COPY docker/php.ini /usr/local/etc/php/conf.d/laravel.ini
