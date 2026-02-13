@@ -29,8 +29,8 @@ yarn-error.log
 /.agents
 /.codex
 AGENTS.md
-/docker
-.dockerignore
-DOCKER_DEPLOYMENT.md
-Dockerfile
-render.yaml
+# /docker
+# .dockerignore
+# DOCKER_DEPLOYMENT.md
+# Dockerfile
+# render.yaml
