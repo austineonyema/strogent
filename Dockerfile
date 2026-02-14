@@ -1,9 +1,14 @@
-# Build stage
+# ----------------------------
+# BUILD STAGE
+# ----------------------------
 FROM php:8.4-fpm-alpine AS builder
 
+# Set working directory
 WORKDIR /app
 
+# ----------------------------
 # Install system dependencies
+# ----------------------------
 RUN apk add --no-cache \
     build-base \
     libpng-dev \
@@ -17,7 +22,9 @@ RUN apk add --no-cache \
     git \
     curl
 
+# ----------------------------
 # Install PHP extensions
+# ----------------------------
 RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     docker-php-ext-install -j$(nproc) \
     gd \
@@ -29,34 +36,52 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
     ctype \
     fileinfo
 
+# ----------------------------
 # Install Composer
+# ----------------------------
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy composer files first
-COPY composer.json composer.lock* ./
+# ----------------------------
+# Copy composer files (for caching)
+# ----------------------------
+COPY composer.json composer.lock ./ 
 
+# Copy artisan and essential folders for post-autoload-dump
+COPY artisan ./ 
+COPY bootstrap ./bootstrap
+COPY config ./config
+
+# Install PHP dependencies
 RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-# Copy full application AFTER dependencies
+# ----------------------------
+# Copy rest of application
+# ----------------------------
 COPY . .
 
-# Now safe to optimize
+# Generate optimized autoload
 RUN composer dump-autoload --optimize
 
-# Install frontend deps
-COPY package.json package-lock.json* ./
+# ----------------------------
+# Node / Frontend Build
+# ----------------------------
+COPY package.json package-lock.json* ./ 
 RUN npm ci
 
-# Build assets
+# Copy assets and build
+COPY . .
 RUN npm run build
 
-# Runtime stage
+# ----------------------------
+# RUNTIME STAGE
+# ----------------------------
 FROM php:8.4-fpm-alpine
 
-# Set working directory
 WORKDIR /app
 
-# Install runtime dependencies only
+# ----------------------------
+# Install runtime dependencies
+# ----------------------------
 RUN apk add --no-cache \
     nginx \
     supervisor \
@@ -68,38 +93,43 @@ RUN apk add --no-cache \
     libzip \
     postgresql-client
 
-# Reuse PHP extensions compiled in the builder stage
+# ----------------------------
+# Copy PHP extensions & configs from builder
+# ----------------------------
 COPY --from=builder /usr/local/lib/php/extensions/ /usr/local/lib/php/extensions/
 COPY --from=builder /usr/local/etc/php/conf.d/ /usr/local/etc/php/conf.d/
 
-# Copy PHP configuration
 COPY docker/php.ini /usr/local/etc/php/conf.d/laravel.ini
 COPY docker/www.conf /usr/local/etc/php-fpm.d/www.conf
 
-# Copy Nginx configuration
+# ----------------------------
+# Nginx & Supervisor configs
+# ----------------------------
 COPY docker/nginx.conf /etc/nginx/nginx.conf
 COPY docker/default.conf /etc/nginx/http.d/default.conf
-
-# Copy Supervisor configuration
 COPY docker/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
+# ----------------------------
 # Copy built application from builder
+# ----------------------------
 COPY --from=builder --chown=nobody:nobody /app /app
 
-# Create necessary directories and set permissions
-RUN mkdir -p /app/storage/logs && \
-    chown -R nobody:nobody /app && \
-    chmod -R 755 /app/storage && \
-    chmod -R 755 /app/bootstrap/cache 
+# ----------------------------
+# Fix permissions
+# ----------------------------
+RUN mkdir -p /app/storage/logs /var/log/nginx /var/run && \
+    chown -R nobody:nobody /app /var/log/nginx /var/run && \
+    chmod -R 755 /app/storage /app/bootstrap/cache
 
-# Expose port
-# EXPOSE 8000
-
+# ----------------------------
 # Health check
+# ----------------------------
 HEALTHCHECK --interval=10s --timeout=3s --start-period=5s --retries=3 \
     CMD wget --no-verbose --tries=1 --spider http://localhost:8000 || exit 1
 
-# Run startup script
+# ----------------------------
+# Run Startup script
+# ----------------------------
 COPY docker/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
