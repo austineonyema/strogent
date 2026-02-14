@@ -1,7 +1,6 @@
 # Build stage
 FROM php:8.4-fpm-alpine AS builder
 
-# Set working directory
 WORKDIR /app
 
 # Install system dependencies
@@ -33,21 +32,20 @@ RUN docker-php-ext-configure gd --with-freetype --with-jpeg && \
 # Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-# Copy composer files
+# Copy composer files first
 COPY composer.json composer.lock* ./
 
-# Install PHP dependencies
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader
 
-# Copy Node package files and install dependencies for frontend build
-COPY package.json package-lock.json* ./
-RUN npm ci
-
-# Copy application code
+# Copy full application AFTER dependencies
 COPY . .
 
-# Generate optimized autoloader
+# Now safe to optimize
 RUN composer dump-autoload --optimize
+
+# Install frontend deps
+COPY package.json package-lock.json* ./
+RUN npm ci
 
 # Build assets
 RUN npm run build
@@ -92,7 +90,7 @@ COPY --from=builder --chown=nobody:nobody /app /app
 RUN mkdir -p /app/storage/logs && \
     chown -R nobody:nobody /app && \
     chmod -R 755 /app/storage && \
-    chmod -R 755 /app/bootstrap/cache
+    chmod -R 755 /app/bootstrap/cache 
 
 # Expose port
 # EXPOSE 8000
