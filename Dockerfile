@@ -1,3 +1,5 @@
+# syntax=docker/dockerfile:1.7
+
 # Build stage
 FROM php:8.4-fpm-alpine AS builder
 
@@ -37,11 +39,13 @@ COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 COPY composer.json composer.lock* ./
 
 # Install PHP dependencies
-RUN composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-scripts
+RUN --mount=type=cache,target=/tmp/composer-cache \
+    COMPOSER_CACHE_DIR=/tmp/composer-cache \
+    composer install --no-dev --no-interaction --prefer-dist --optimize-autoloader --no-scripts
 
 # Copy Node package files and install dependencies for frontend build
 COPY package.json package-lock.json* ./
-RUN npm ci
+RUN --mount=type=cache,target=/root/.npm npm ci --no-audit --no-fund
 
 # Copy application code
 COPY . .
@@ -50,7 +54,7 @@ COPY . .
 RUN composer dump-autoload --optimize
 
 # Build assets
-RUN npm run build
+RUN npm run build && rm -rf node_modules
 
 # Runtime stage
 FROM php:8.4-fpm-alpine
