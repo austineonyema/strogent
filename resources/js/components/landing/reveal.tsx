@@ -13,20 +13,20 @@ export default function Reveal({
     delay = '0ms',
 }: RevealProps) {
     const ref = useRef<HTMLDivElement | null>(null);
-    const [isVisible, setIsVisible] = useState(false);
-
-    useEffect(() => {
+    const [isVisible, setIsVisible] = useState(() => {
         if (typeof window === 'undefined') {
-            setIsVisible(true);
-            return;
+            return true;
         }
 
         const prefersReducedMotion = window.matchMedia?.(
             '(prefers-reduced-motion: reduce)',
         ).matches;
 
-        if (prefersReducedMotion || !('IntersectionObserver' in window)) {
-            setIsVisible(true);
+        return prefersReducedMotion || !('IntersectionObserver' in window);
+    });
+
+    useEffect(() => {
+        if (isVisible || typeof window === 'undefined') {
             return;
         }
 
@@ -45,7 +45,7 @@ export default function Reveal({
         }
 
         return () => observer.disconnect();
-    }, []);
+    }, [isVisible]);
 
     return (
         <div
