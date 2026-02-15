@@ -3,7 +3,7 @@ import BrandLogoIcon from '@/components/brand-logo-icon';
 export default function AppLogo() {
     return (
         <>
-            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-[var(--color-primary)] text-white">
+            <div className="flex aspect-square size-8 items-center justify-center rounded-md bg-white ring-1 ring-white/50">
                 <BrandLogoIcon className="size-6" />
             </div>
             <div className="ml-1 grid flex-1 text-left text-sm">
