@@ -1,6 +1,6 @@
-import type { ReactNode } from 'react';
 import { Link } from '@inertiajs/react';
 import { ArrowRight, ShieldCheck, Sparkles } from 'lucide-react';
+import type { ReactNode } from 'react';
 import Reveal from './reveal';
 
 type Action = {

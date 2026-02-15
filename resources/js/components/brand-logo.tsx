@@ -1,6 +1,6 @@
-import { cn } from '@/lib/utils';
 import BrandLogoIcon from '@/components/brand-logo-icon';
 import BrandLogoWordmark from '@/components/brand-logo-wordmark';
+import { cn } from '@/lib/utils';
 
 type BrandLogoProps = {
     className?: string;

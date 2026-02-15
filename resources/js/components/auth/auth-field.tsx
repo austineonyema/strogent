@@ -1,8 +1,8 @@
 import type { ComponentProps, ReactNode } from 'react';
-import { cn } from '@/lib/utils';
 import InputError from '@/components/input-error';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
+import { cn } from '@/lib/utils';
 
 type InputProps = ComponentProps<typeof Input>;
 

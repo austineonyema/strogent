@@ -1,6 +1,6 @@
-import { useState } from 'react';
 import { Link, usePage } from '@inertiajs/react';
 import { ArrowRight, Menu, X } from 'lucide-react';
+import { useState } from 'react';
 import { dashboard, home, login, register } from '@/routes';
 import type { SharedData } from '@/types';
 
