@@ -3,7 +3,6 @@ import { REGEXP_ONLY_DIGITS } from 'input-otp';
 import { useMemo, useState } from 'react';
 import AuthCard from '@/components/auth/auth-card';
 import AuthShell from '@/components/auth/auth-shell';
-import BrandLogo from '@/components/brand-logo';
 import InputError from '@/components/input-error';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
@@ -54,9 +53,6 @@ export default function TwoFactorChallenge() {
         >
             <Head title="Two-Factor Authentication" />
             <div className="flex flex-col gap-(--space-6)">
-                <div className="flex items-center justify-center rounded-2xl border border-border bg-(--color-surface-elevated) px-(--space-5) py-(--space-4) shadow-lg">
-                    <BrandLogo />
-                </div>
                 <AuthCard
                     title={authConfigContent.title}
                     description={authConfigContent.description}

@@ -1,7 +1,6 @@
 import { Head, Link } from '@inertiajs/react';
 import type { CSSProperties, PropsWithChildren, ReactNode } from 'react';
 import TrustBadgeStrip from '@/components/auth/trust-badge-strip';
-import BrandLogo from '@/components/brand-logo';
 import { home } from '@/routes';
 import { colorCssVars } from '@/theme/colors';
 import { motionCssVars } from '@/theme/motion';
@@ -86,9 +85,6 @@ export default function AuthShell({
                             <TrustBadgeStrip />
                         </section>
                         <section className="flex flex-col gap-[var(--space-6)]">
-                            <div className="flex items-center justify-center rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] px-[var(--space-5)] py-[var(--space-4)] shadow-lg">
-                                <BrandLogo />
-                            </div>
                             {children}
                         </section>
                     </main>
