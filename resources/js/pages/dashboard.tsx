@@ -77,19 +77,19 @@ export default function Dashboard() {
                                 key={label}
                                 className="relative aspect-video overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)]"
                             >
-                                <div className="absolute left-[var(--space-4)] top-[var(--space-4)] rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-3)] py-[var(--space-1)] text-[length:var(--text-micro)] font-semibold text-[var(--color-text-muted)]">
+                                <div className="absolute left-[var(--space-4)] top-[var(--space-4)] z-10 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-3)] py-[var(--space-1)] text-[length:var(--text-micro)] font-semibold text-[var(--color-text-muted)]">
                                     {label}
                                 </div>
-                                <PlaceholderPattern className="absolute inset-0 size-full stroke-[var(--color-border)]" />
+                                <PlaceholderPattern className="pointer-events-none absolute inset-0 z-0 size-full stroke-[var(--color-border)] opacity-50" />
                             </div>
                         ),
                     )}
                 </div>
                 <div className="relative min-h-[60vh] flex-1 overflow-hidden rounded-2xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)]">
-                    <div className="absolute left-[var(--space-4)] top-[var(--space-4)] rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-3)] py-[var(--space-1)] text-[length:var(--text-micro)] font-semibold text-[var(--color-text-muted)]">
+                    <div className="absolute left-[var(--space-4)] top-[var(--space-4)] z-10 rounded-full border border-[var(--color-border)] bg-[var(--color-surface)] px-[var(--space-3)] py-[var(--space-1)] text-[length:var(--text-micro)] font-semibold text-[var(--color-text-muted)]">
                         Operations overview
                     </div>
-                    <PlaceholderPattern className="absolute inset-0 size-full stroke-[var(--color-border)]" />
+                    <PlaceholderPattern className="pointer-events-none absolute inset-0 z-0 size-full stroke-[var(--color-border)] opacity-50" />
                 </div>
             </div>
         </AppLayout>
