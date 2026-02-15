@@ -23,6 +23,7 @@ import {
 } from "@/components/ui/tooltip"
 import { useIsMobile } from "@/hooks/use-mobile"
 import { cn } from "@/lib/utils"
+import { semanticColors } from "@/theme/colors"
 
 const SIDEBAR_COOKIE_NAME = "sidebar_state"
 const SIDEBAR_COOKIE_MAX_AGE = 60 * 60 * 24 * 7
@@ -194,8 +195,8 @@ function Sidebar({
           style={
             {
               "--sidebar-width": SIDEBAR_WIDTH_MOBILE,
-              backgroundColor: "var(--sidebar, var(--color-primary, #175987))",
-              color: "var(--sidebar-foreground, #FFFFFF)",
+              backgroundColor: semanticColors.primary,
+              color: "#FFFFFF",
             } as React.CSSProperties
           }
           side={side}

@@ -32,6 +32,7 @@ import { useCurrentUrl } from '@/hooks/use-current-url';
 import { useInitials } from '@/hooks/use-initials';
 import { cn, toUrl } from '@/lib/utils';
 import { dashboard } from '@/routes';
+import { semanticColors } from '@/theme/colors';
 import type { BreadcrumbItem, NavItem, SharedData } from '@/types';
 import AppLogo from './app-logo';
 import AppLogoIcon from './app-logo-icon';
@@ -89,8 +90,7 @@ export function AppHeader({ breadcrumbs = [] }: Props) {
                                 side="left"
                                 className="flex h-full w-64 flex-col items-stretch justify-between text-white"
                                 style={{
-                                    backgroundColor:
-                                        'var(--color-primary, #175987)',
+                                    backgroundColor: semanticColors.primary,
                                 }}
                             >
                                 <SheetTitle className="sr-only">
