@@ -1,4 +1,5 @@
 import { Link } from '@inertiajs/react';
+import type { CSSProperties } from 'react';
 import { LayoutGrid } from 'lucide-react';
 import { NavFooter } from '@/components/nav-footer';
 import { NavMain } from '@/components/nav-main';
@@ -26,9 +27,23 @@ const mainNavItems: NavItem[] = [
 
 const footerNavItems: NavItem[] = [];
 
+const sidebarThemeVars = {
+    '--sidebar': 'var(--color-primary)',
+    '--sidebar-foreground': '#FFFFFF',
+    '--sidebar-primary': 'var(--color-primary)',
+    '--sidebar-primary-foreground': '#FFFFFF',
+    '--sidebar-accent': 'var(--color-primary-hover)',
+    '--sidebar-accent-foreground': '#FFFFFF',
+    '--sidebar-border': 'color-mix(in srgb, var(--color-primary-hover) 30%, white)',
+} as CSSProperties;
+
 export function AppSidebar() {
     return (
-        <Sidebar collapsible="icon" variant="inset">
+        <Sidebar
+            collapsible="icon"
+            variant="inset"
+            style={sidebarThemeVars}
+        >
             <SidebarHeader>
                 <SidebarMenu>
                     <SidebarMenuItem>
