@@ -52,7 +52,7 @@ export default function Reveal({
             ref={ref}
             data-in-view={isVisible}
             style={{ '--reveal-delay': delay } as CSSProperties}
-            className={`opacity-0 translate-y-[var(--motion-distance-md)] transition-all duration-[var(--motion-base)] ease-[var(--motion-ease)] delay-[var(--reveal-delay)] data-[in-view=true]:opacity-100 data-[in-view=true]:translate-y-0 motion-reduce:opacity-100 motion-reduce:translate-y-0 motion-reduce:transition-none ${className}`}
+            className={`translate-y-(--motion-distance-md) opacity-0 transition-all delay-(--reveal-delay) duration-(--motion-base) ease-(--motion-ease) data-[in-view=true]:translate-y-0 data-[in-view=true]:opacity-100 motion-reduce:translate-y-0 motion-reduce:opacity-100 motion-reduce:transition-none ${className}`}
         >
             {children}
         </div>
