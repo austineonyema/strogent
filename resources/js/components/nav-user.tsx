@@ -14,6 +14,7 @@ import {
 import { UserInfo } from '@/components/user-info';
 import { UserMenuContent } from '@/components/user-menu-content';
 import { useIsMobile } from '@/hooks/use-mobile';
+import { semanticColors } from '@/theme/colors';
 import type { SharedData } from '@/types';
 
 export function NavUser() {
@@ -36,7 +37,12 @@ export function NavUser() {
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
-                        className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg border-white/20 bg-[var(--color-primary)] text-white [&_[data-slot=dropdown-menu-label]]:text-white [&_[data-slot=dropdown-menu-item]]:text-white [&_[data-slot=dropdown-menu-item]]:focus:bg-white/15 [&_[data-slot=dropdown-menu-item]]:focus:text-white [&_[data-slot=dropdown-menu-separator]]:bg-white/20"
+                        className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg text-white [&_.text-muted-foreground]:text-white/80 [&_[data-slot=dropdown-menu-label]]:text-white [&_[data-slot=dropdown-menu-item][data-variant=default]]:text-white [&_[data-slot=dropdown-menu-item][data-variant=default]]:focus:bg-white/15 [&_[data-slot=dropdown-menu-item][data-variant=default]]:focus:text-white [&_[data-slot=dropdown-menu-item][data-variant=destructive]]:text-red-300 [&_[data-slot=dropdown-menu-item][data-variant=destructive]]:focus:bg-red-500/20 [&_[data-slot=dropdown-menu-item][data-variant=destructive]]:focus:text-red-200 [&_[data-slot=dropdown-menu-separator]]:bg-white/20"
+                        style={{
+                            backgroundColor: semanticColors.primary,
+                            borderColor: 'rgba(255, 255, 255, 0.2)',
+                            color: '#FFFFFF',
+                        }}
                         align="end"
                         side={
                             isMobile
