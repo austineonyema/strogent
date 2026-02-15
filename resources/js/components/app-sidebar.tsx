@@ -32,9 +32,9 @@ const sidebarThemeVars = {
     '--sidebar-foreground': '#FFFFFF',
     '--sidebar-primary': 'var(--color-primary)',
     '--sidebar-primary-foreground': '#FFFFFF',
-    '--sidebar-accent': 'var(--color-primary-hover)',
+    '--sidebar-accent': 'rgba(255, 255, 255, 0.16)',
     '--sidebar-accent-foreground': '#FFFFFF',
-    '--sidebar-border': 'color-mix(in srgb, var(--color-primary-hover) 30%, white)',
+    '--sidebar-border': 'rgba(255, 255, 255, 0.25)',
 } as CSSProperties;
 
 export function AppSidebar() {

@@ -28,7 +28,7 @@ export function NavUser() {
                     <DropdownMenuTrigger asChild>
                         <SidebarMenuButton
                             size="lg"
-                            className="group text-sidebar-accent-foreground data-[state=open]:bg-sidebar-accent"
+                            className="group text-white hover:bg-white/15 hover:text-white data-[state=open]:bg-white/15 data-[state=open]:text-white"
                             data-test="sidebar-menu-button"
                         >
                             <UserInfo user={auth.user} />
@@ -36,7 +36,7 @@ export function NavUser() {
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
                     <DropdownMenuContent
-                        className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg"
+                        className="w-(--radix-dropdown-menu-trigger-width) min-w-56 rounded-lg border-white/20 bg-[var(--color-primary)] text-white [&_[data-slot=dropdown-menu-label]]:text-white [&_[data-slot=dropdown-menu-item]]:text-white [&_[data-slot=dropdown-menu-item]]:focus:bg-white/15 [&_[data-slot=dropdown-menu-item]]:focus:text-white [&_[data-slot=dropdown-menu-separator]]:bg-white/20"
                         align="end"
                         side={
                             isMobile

@@ -15,7 +15,7 @@ const sidebarThemeVars = {
     '--sidebar-foreground': '#FFFFFF',
     '--sidebar-primary': 'var(--color-primary)',
     '--sidebar-primary-foreground': '#FFFFFF',
-    '--sidebar-accent': 'var(--color-primary-hover)',
+    '--sidebar-accent': 'rgba(255, 255, 255, 0.16)',
     '--sidebar-accent-foreground': '#FFFFFF',
 } as CSSProperties;
 
