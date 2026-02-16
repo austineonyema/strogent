@@ -28,7 +28,11 @@ export function UserMenuContent({ user }: Props) {
         <>
             <DropdownMenuLabel className="p-0 font-normal">
                 <div className="flex items-center gap-2 px-1 py-1.5 text-left text-sm">
-                    <UserInfo user={user} showEmail={true} />
+                    <UserInfo
+                        user={user}
+                        showEmail={true}
+                        avatarFallbackClassName="bg-white/20 text-white dark:bg-white/20 dark:text-white"
+                    />
                 </div>
             </DropdownMenuLabel>
             <DropdownMenuSeparator />
