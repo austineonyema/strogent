@@ -30,7 +30,7 @@ export default function Dashboard() {
             <Head title="Dashboard" />
             <div
                 style={themeVars}
-                className="flex h-full flex-1 flex-col gap-[var(--space-6)] overflow-x-auto rounded-3xl bg-[var(--color-surface)] p-[var(--space-6)] text-[var(--color-text)]"
+                className="flex h-full flex-1 flex-col gap-[var(--space-6)] overflow-x-auto bg-[var(--color-surface)] p-[var(--space-6)] text-[var(--color-text)]"
             >
                 <div className="flex flex-col gap-[var(--space-4)] rounded-3xl border border-[var(--color-border)] bg-[var(--color-surface-elevated)] p-[var(--space-6)] shadow-xl md:flex-row md:items-center md:justify-between">
                     <div className="flex items-center gap-[var(--space-4)]">
