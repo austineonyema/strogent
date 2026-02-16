@@ -32,7 +32,10 @@ export function NavUser() {
                             className="group text-white hover:bg-white/15 hover:text-white data-[state=open]:bg-white/15 data-[state=open]:text-white"
                             data-test="sidebar-menu-button"
                         >
-                            <UserInfo user={auth.user} />
+                            <UserInfo
+                                user={auth.user}
+                                avatarFallbackClassName="bg-white/20 text-white dark:bg-white/20 dark:text-white"
+                            />
                             <ChevronsUpDown className="ml-auto size-4" />
                         </SidebarMenuButton>
                     </DropdownMenuTrigger>
